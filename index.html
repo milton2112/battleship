@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Battleship</title>
+  <script defer src="./bundle.js"></script></head>
+
+  <body>
+    <main class="app">
+      <h1>Battleship</h1>
+
+      <section id="mode-panel">
+        <h2>Elegí un modo de juego</h2>
+
+        <div class="mode-buttons">
+          <button id="computer-mode-button" type="button">
+            Contra computadora
+          </button>
+
+          <button id="two-player-mode-button" type="button">2 jugadores</button>
+        </div>
+      </section>
+
+      <section id="game-panel" hidden>
+        <div class="top-controls">
+          <button id="restart-button" type="button">Reiniciar partida</button>
+
+          <button id="menu-button" type="button">Cambiar modo</button>
+        </div>
+
+        <div id="setup-controls">
+          <button id="randomize-button" type="button">Generar flota</button>
+
+          <button id="clear-button" type="button">Limpiar flota</button>
+
+          <button id="rotate-button" type="button">
+            Orientación: Horizontal
+          </button>
+
+          <button id="ready-button" type="button">Confirmar flota</button>
+        </div>
+
+        <p id="status"></p>
+
+        <section id="dock-section" class="dock-section">
+          <h3>Barcos por colocar</h3>
+
+          <p class="dock-help">
+            Arrastrá un barco desde aquí hasta tu tablero.
+          </p>
+
+          <div id="ship-dock" class="ship-dock"></div>
+        </section>
+
+        <section class="boards">
+          <div id="own-board-wrapper" class="board-wrapper">
+            <h2 id="own-board-title">Tu tablero</h2>
+
+            <div id="player-board" class="board"></div>
+          </div>
+
+          <div id="enemy-board-wrapper" class="board-wrapper" hidden>
+            <h2 id="enemy-board-title">Tablero enemigo</h2>
+
+            <div id="computer-board" class="board"></div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div id="pass-screen" class="pass-screen" hidden>
+      <div class="pass-card">
+        <h2>Pasá el dispositivo</h2>
+
+        <p id="pass-message"></p>
+
+        <button id="continue-button" type="button">Estoy listo</button>
+      </div>
+    </div>
+  </body>
+</html>
