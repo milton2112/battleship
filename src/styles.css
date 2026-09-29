@@ -1,0 +1,378 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  background: #eef4f8;
+  color: #102a43;
+}
+
+button {
+  font: inherit;
+}
+
+button:focus-visible {
+  outline: 3px solid #ffb703;
+  outline-offset: 2px;
+}
+
+.app {
+  width: min(1180px, 95%);
+
+  margin: 0 auto;
+
+  padding: 32px 0 60px;
+
+  text-align: center;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 24px;
+
+  font-size: 2.7rem;
+}
+
+h2,
+h3 {
+  color: #102a43;
+}
+
+#mode-panel {
+  width: min(600px, 100%);
+
+  margin: 50px auto;
+
+  padding: 32px;
+
+  border-radius: 16px;
+
+  background: white;
+
+  box-shadow: 0 10px 30px rgb(0 0 0 / 10%);
+}
+
+.mode-buttons,
+.top-controls,
+#setup-controls {
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+}
+
+.mode-buttons {
+  margin-top: 25px;
+}
+
+.top-controls {
+  margin-bottom: 18px;
+}
+
+#setup-controls {
+  margin-bottom: 18px;
+}
+
+.mode-buttons button,
+.top-controls button,
+#setup-controls button,
+.pass-card button {
+  padding: 11px 18px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #1f6feb;
+
+  color: white;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.mode-buttons button:hover:not(:disabled),
+.top-controls button:hover:not(:disabled),
+#setup-controls button:hover:not(:disabled),
+.pass-card button:hover:not(:disabled) {
+  filter: brightness(0.9);
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+#status {
+  min-height: 26px;
+
+  margin: 18px auto 24px;
+
+  font-weight: 700;
+
+  line-height: 1.4;
+}
+
+.dock-section {
+  width: min(850px, 100%);
+
+  margin: 0 auto 30px;
+
+  padding: 20px;
+
+  border-radius: 14px;
+
+  background: white;
+
+  box-shadow: 0 6px 20px rgb(0 0 0 / 8%);
+}
+
+.dock-section h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.dock-help {
+  margin-top: 0;
+
+  color: #486581;
+}
+
+.ship-dock {
+  min-height: 70px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 18px;
+
+  margin-top: 18px;
+}
+
+.dock-ship {
+  display: flex;
+
+  cursor: grab;
+
+  user-select: none;
+}
+
+.dock-ship:active {
+  cursor: grabbing;
+}
+
+.dock-ship.horizontal {
+  flex-direction: row;
+}
+
+.dock-ship.vertical {
+  flex-direction: column;
+}
+
+.dock-segment {
+  display: block;
+
+  width: 28px;
+  height: 28px;
+
+  border: 1px solid #243b53;
+
+  background: #52616b;
+}
+
+.fleet-complete-message {
+  margin: 0;
+
+  color: #2b9348;
+
+  font-weight: 700;
+}
+
+.boards {
+  display: flex;
+
+  justify-content: center;
+  align-items: flex-start;
+
+  flex-wrap: wrap;
+
+  gap: 50px;
+}
+
+.board-wrapper {
+  padding: 18px;
+
+  border-radius: 14px;
+
+  background: white;
+
+  box-shadow: 0 6px 20px rgb(0 0 0 / 8%);
+}
+
+.board-wrapper h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+
+  font-size: 1.25rem;
+}
+
+.board {
+  display: grid;
+
+  grid-template-columns: repeat(10, 36px);
+
+  grid-template-rows: repeat(10, 36px);
+
+  gap: 2px;
+}
+
+.cell {
+  width: 36px;
+  height: 36px;
+
+  padding: 0;
+
+  border: 1px solid #486581;
+
+  background: #9dd9f3;
+
+  color: #102a43;
+
+  font-weight: 700;
+
+  font-size: 1rem;
+
+  cursor: pointer;
+}
+
+.cell:hover:not(:disabled) {
+  background: #6fc2e8;
+}
+
+.cell:disabled {
+  opacity: 1;
+
+  cursor: default;
+}
+
+.cell.ship {
+  background: #52616b;
+}
+
+.cell.hit {
+  background: #e63946;
+
+  color: white;
+}
+
+.cell.miss {
+  background: #ffffff;
+
+  color: #486581;
+}
+
+.cell.placement-cell {
+  cursor: crosshair;
+}
+
+.cell.drop-target {
+  background: #90be6d;
+
+  border-color: #2b9348;
+}
+
+.pass-screen {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: #102a43;
+}
+
+.pass-screen[hidden] {
+  display: none;
+}
+
+.pass-card {
+  width: min(500px, 100%);
+
+  padding: 40px;
+
+  border-radius: 18px;
+
+  background: white;
+
+  text-align: center;
+
+  box-shadow: 0 20px 60px rgb(0 0 0 / 35%);
+}
+
+.pass-card h2 {
+  margin-top: 0;
+
+  font-size: 2rem;
+}
+
+.pass-card p {
+  margin: 20px 0 28px;
+
+  line-height: 1.6;
+
+  font-size: 1.1rem;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 500px) {
+  .app {
+    width: 98%;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .board-wrapper {
+    padding: 10px;
+  }
+
+  .board {
+    grid-template-columns: repeat(10, 29px);
+
+    grid-template-rows: repeat(10, 29px);
+  }
+
+  .cell {
+    width: 29px;
+    height: 29px;
+  }
+
+  .dock-segment {
+    width: 22px;
+    height: 22px;
+  }
+}
